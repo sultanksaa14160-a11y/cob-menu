@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>كوب | COB — المنيو</title>
+<link rel="icon" href="img/mark-crimson.png">
+<meta name="description" content="منيو كوب | COB — قهوة مختصة ومخبوزات وفطور في خميس مشيط.">
+<meta name="theme-color" content="#9E1F35">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Poppins:wght@400;500;600&family=Kanit:wght@400;500&family=Noto+Naskh+Arabic:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F1E6; --bg2:#FFFCF6; --panel:#EFE6D6; --line:#E4D8C4; --line2:#D9C9B1;
+  --paper:#FFFDF8; --paper2:#F3EBDD; --pline:#EADFCC; --ink:#3A2619; --pmuted:#8A7461;
+  --cream:#3A2619; --muted:#7E6A58; --copper:#A8643F; --wine:#B3263C; --wine-l:#B3263C;
+  --green:#E9ECDC; --green2:#D3DAB9; --ok:#5E7E45;
+  --serif-ar:"Noto Naskh Arabic","Amiri",serif; --serif-en:"Poppins",system-ui,sans-serif; --sans:"IBM Plex Sans Arabic",system-ui,sans-serif;
+  --safe-t:env(safe-area-inset-top,0px); --safe-b:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;overflow-x:hidden}
+.col-intro .deco{display:none}
+@media(min-width:1100px){.col-intro .deco{display:block}}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+input{font:inherit}
+:focus-visible{outline:2px solid var(--copper);outline-offset:3px;border-radius:8px}
+.serif{font-family:var(--serif-ar)} [lang=en] .serif{font-family:var(--serif-en)}
+.eyebrow{font-size:12px;letter-spacing:.16em;color:var(--copper);font-weight:500;text-transform:uppercase}
+.wrap{max-width:1240px;margin:0 auto;padding:0 18px}
+.deco{position:absolute;pointer-events:none;color:#A8643F;opacity:.22}
+
+/* header */
+header{position:sticky;top:0;z-index:40;background:rgba(247,241,230,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding-top:var(--safe-t);border-bottom:1px solid transparent;transition:border-color .2s}
+header.scrolled{border-color:var(--line)}
+.bar{display:flex;align-items:center;gap:14px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--wine-l)}
+.brand svg{height:28px;width:84px;flex:none}
+.brand small{white-space:nowrap;color:var(--muted);font-size:12px;border-inline-start:1px solid var(--line2);padding-inline-start:10px}
+nav.main{display:none;gap:30px;margin:0 auto}
+nav.main a{font-size:15px;color:var(--cream);opacity:.85;position:relative;padding:6px 0}
+nav.main a.on{opacity:1}
+nav.main a.on::after{content:"";position:absolute;bottom:-2px;inset-inline-start:25%;width:50%;height:2px;background:var(--copper);border-radius:2px}
+.tools{display:flex;align-items:center;gap:4px;margin-inline-start:auto}
+.open-pill{display:none;align-items:center;gap:8px;border:1px solid var(--line2);border-radius:10px;padding:7px 12px;font-size:13px}
+.open-pill i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(127,163,106,.18)}
+.open-pill b{color:var(--ok);font-weight:500}
+.ib{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;position:relative;transition:background .2s}
+.ib:hover{background:var(--panel)}
+.ib svg{width:20px;height:20px}
+.badge{position:absolute;top:3px;inset-inline-end:1px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:var(--wine);color:#fff;font-size:10.5px;font-weight:600;display:grid;place-items:center}
+.badge[data-n="0"]{display:none}
+.lang{font-size:12.5px;font-weight:500;background:#fff;border:1px solid var(--line2);border-radius:20px;padding:6px 12px;margin-inline-start:4px}
+
+/* layout */
+.layout>*{min-width:0}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;padding-top:18px;padding-bottom:10px;position:relative}
+.col-intro{position:relative}
+.intro h1{font-family:var(--serif-ar);font-weight:600;font-size:34px;line-height:1.35;margin:10px 0 10px;color:var(--cream)}
+[lang=en] .intro h1{font-family:var(--serif-en);font-size:42px;line-height:1.1;font-weight:500}
+.intro p{color:var(--muted);margin:0 0 6px;font-size:15.5px;max-width:420px}
+.values{display:none;flex-direction:column;gap:12px;margin-top:22px}
+.val{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+.val.green{background:var(--green);border-color:var(--green2)}
+.val .ic{flex:none;width:46px;height:46px;border-radius:50%;border:1px solid rgba(179,38,60,.35);background:#fff;display:grid;place-items:center;color:var(--wine)}
+.val .ic svg{width:22px;height:22px}
+.val h3{margin:0;font-family:var(--serif-ar);font-size:17px;font-weight:600}
+[lang=en] .val h3{font-family:var(--serif-en);font-size:20px;font-weight:500}
+.val p{margin:2px 0 0;color:var(--muted);font-size:13.5px}
+
+/* menu column */
+.col-menu{min-width:0}
+.searchrow{display:flex;gap:8px;margin-bottom:10px}
+.search{flex:1;display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:0 12px;height:44px}
+.search svg{width:17px;height:17px;color:var(--muted);flex:none}
+.search input{flex:1;border:0;background:none;outline:none;color:var(--cream);height:100%;min-width:0}
+.search input::placeholder{color:#A8957F}
+.search .clr{display:none;color:var(--muted);font-size:20px;padding:4px}
+.search.has .clr{display:block}
+.fbtn{height:44px;padding:0 12px;border:1px solid var(--line);border-radius:12px;background:var(--bg2);font-size:13px;color:var(--muted);display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.fbtn.on{border-color:var(--wine);color:var(--wine);background:#fff}
+.fbtn svg{width:15px;height:15px}
+.tabs-wrap{position:sticky;top:calc(64px + var(--safe-t));z-index:20;padding:6px 0 10px;background:linear-gradient(var(--bg) 75%,rgba(247,241,230,0))}
+.tabs{display:flex;gap:4px;padding:5px;border:1px solid var(--line);border-radius:40px;background:var(--bg2);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;padding:9px 18px;border-radius:30px;font-size:14.5px;color:var(--cream);opacity:.85;white-space:nowrap;transition:all .25s}
+.tab.on{background:var(--wine);color:#fff;opacity:1;font-weight:500}
+.menucard{background:var(--paper);color:var(--ink);border-radius:18px;padding:6px 18px 4px;box-shadow:0 24px 50px -30px rgba(90,55,30,.35);border:1px solid var(--pline);position:relative;overflow:hidden}
+.menucard::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 60% at 100% 0,rgba(255,255,255,.35),transparent 60%);pointer-events:none}
+.mc-head{display:flex;align-items:baseline;justify-content:space-between;padding:14px 0 6px;border-bottom:1px solid var(--pline)}
+.mc-head h2{margin:0;font-family:var(--serif-ar);font-size:22px;font-weight:600}
+[lang=en] .mc-head h2{font-family:var(--serif-en);font-size:26px;font-weight:600}
+.mc-head small{color:var(--pmuted);font-size:12.5px}
+.row{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--pline);width:100%;text-align:start;position:relative;animation:rise .35s ease both}
+.row:last-child{border-bottom:0}
+.row .ph{flex:none;width:66px;height:66px;border-radius:50%;overflow:hidden;background:var(--paper2);border:1px solid var(--pline)}
+.row .ph img{width:100%;height:100%;object-fit:cover}
+.row .tx{flex:1;min-width:0}
+.row .top{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.row h3{margin:0;font-family:var(--serif-ar);font-size:18px;font-weight:600;line-height:1.4}
+[lang=en] .row h3{font-family:var(--serif-en);font-size:21px;font-weight:600;line-height:1.2}
+.row h3 .star{color:var(--copper);font-size:14px;margin-inline-start:4px}
+.row .pr{flex:none;font-family:var(--serif-en);font-size:19px;font-weight:600;color:var(--ink)}
+.row .pr.tbd{font-family:var(--sans);font-size:11.5px;font-weight:500;color:var(--pmuted)}
+.row p{margin:2px 0 0;color:var(--pmuted);font-size:13.5px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tg{font-size:10.5px;letter-spacing:.06em;border:1px solid var(--pline);color:#6F5B49;padding:2px 8px;border-radius:4px;font-weight:500}
+.tg.w{border-color:rgba(163,33,58,.4);color:var(--wine)}
+.row.off{opacity:.5}.row.off img{filter:grayscale(1)}
+.fv{flex:none;width:32px;height:32px;display:grid;place-items:center;color:#A89582;margin-inline-start:-4px}
+.fv svg{width:18px;height:18px}
+.fv.on{color:var(--wine)} .fv.on svg path{fill:currentColor}
+.fv.pop{animation:pop .35s}
+.noimg{width:100%;height:100%;display:grid;place-items:center;font-family:var(--serif-en);color:var(--wine);font-size:15px;letter-spacing:.06em;background:var(--paper2)}
+.empty{padding:40px 10px;text-align:center;color:var(--pmuted)} .empty b{display:block;color:var(--ink);font-size:16px}
+.mc-foot{display:flex;justify-content:center;padding:14px 0 12px;border-top:1px solid var(--pline)}
+.mc-foot button{font-size:14.5px;display:inline-flex;align-items:center;gap:8px;color:var(--ink);font-weight:500}
+.mc-foot svg{width:16px;height:16px}
+[dir=rtl] .fl{transform:scaleX(-1)}
+
+/* side column */
+.col-side{display:flex;flex-direction:column;gap:14px}
+.seasonal{position:relative;overflow:hidden;background:var(--green);border:1px solid var(--green2);border-radius:18px;padding:22px;min-height:230px}
+.seasonal h3{font-family:var(--serif-ar);font-size:26px;font-weight:600;margin:8px 0 6px;line-height:1.35;max-width:62%}
+[lang=en] .seasonal h3{font-family:var(--serif-en);font-size:32px;font-weight:500;line-height:1.1}
+.seasonal p{color:#5F6B4C;margin:0 0 12px;font-size:13.5px;max-width:60%}
+.seasonal .pr{font-family:var(--serif-en);font-size:22px;font-weight:600}
+.seasonal .pr.tbd{font-family:var(--sans);font-size:12px;color:#5F6B4C}
+.seasonal .branch{position:absolute;inset-inline-end:-10px;top:10px;width:46%;color:#7F9460;opacity:.55}
+.seasonal .seal{position:absolute;inset-inline-end:16px;bottom:16px;width:86px;color:#B3263C;opacity:.75}
+.seasonal button.more{margin-top:12px;font-size:13px;color:var(--wine);border-bottom:1px solid rgba(179,38,60,.4)}
+.demo{display:block;margin-top:8px;font-size:11px;color:#7E8A69}
+.paper-card{position:relative;overflow:hidden;border:1px solid var(--pline);background:var(--paper);color:var(--ink);border-radius:18px;padding:20px}
+.paper-card .eyebrow{color:var(--copper)}
+.paper-card h3{font-family:var(--serif-ar);font-size:20px;margin:6px 0 4px;font-weight:600}
+[lang=en] .paper-card h3{font-family:var(--serif-en);font-size:24px;font-weight:600}
+.paper-card p{margin:0;color:var(--pmuted);font-size:13.5px;max-width:62%}
+.paper-card .mnt{position:absolute;inset-inline-end:-6px;bottom:-4px;width:52%;color:#A8643F;opacity:.75}
+.picks{display:flex;gap:10px;margin-top:14px;overflow-x:auto;scrollbar-width:none;position:relative;z-index:1}
+.picks::-webkit-scrollbar{display:none}
+.pick{flex:none;width:96px;text-align:center}
+.pick .ph{width:72px;height:72px;margin:0 auto;border-radius:50%;overflow:hidden;border:2px solid var(--paper);box-shadow:0 0 0 1px var(--pline)}
+.pick .ph img{width:100%;height:100%;object-fit:cover}
+.pick span{display:block;font-size:12.5px;margin-top:6px;line-height:1.35;font-weight:500}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mini{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.mini .h{display:flex;justify-content:space-between;align-items:center}
+.mini .h svg{width:20px;height:20px;color:var(--copper)}
+.mini .big{font-family:var(--serif-ar);font-size:19px;font-weight:600;line-height:1.35}
+[lang=en] .mini .big{font-family:var(--serif-en);font-size:22px}
+.mini .sm{color:var(--muted);font-size:13px}
+.mini .status{margin-top:auto;display:flex;align-items:center;justify-content:space-between;color:var(--ok);font-size:14px;padding-top:8px;border-top:1px solid var(--line)}
+.mini .status i{width:9px;height:9px;border-radius:50%;background:var(--ok)}
+.btn-copper{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--wine);color:#fff;border-radius:10px;height:42px;font-size:14px;font-weight:500}
+.btn-copper svg{width:16px;height:16px}
+.pending{margin-top:auto;font-size:12px;color:#9A8673;border-top:1px dashed var(--line2);padding-top:8px}
+
+/* strip */
+.strip{border-top:1px solid var(--line);margin-top:26px;position:relative;overflow:hidden}
+.strip .wrap{display:grid;grid-template-columns:1fr;gap:18px;padding-top:24px;padding-bottom:calc(30px + var(--safe-b))}
+.si{display:flex;gap:14px;align-items:center}
+.si .ic{flex:none;width:54px;height:54px;border-radius:50%;border:1px solid var(--line2);background:#fff;display:grid;place-items:center;color:var(--wine)}
+.si .ic svg{width:24px;height:24px}
+.si h4{margin:0;font-family:var(--serif-ar);font-size:16px;font-weight:600}
+[lang=en] .si h4{font-family:var(--serif-en);font-size:19px}
+.si p{margin:0;color:var(--muted);font-size:13px}
+.fine{color:#9A8673;font-size:11.5px;text-align:center;padding:0 18px 24px}
+
+/* sheet */
+.scrim{position:fixed;inset:0;background:rgba(40,25,15,.45);opacity:0;pointer-events:none;transition:opacity .25s;z-index:60}
+.scrim.show{opacity:1;pointer-events:auto}
+.sheet{position:fixed;z-index:61;left:0;right:0;bottom:0;max-height:92vh;background:var(--paper);color:var(--ink);border-radius:24px 24px 0 0;transform:translateY(105%);transition:transform .35s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;overflow:hidden;padding-bottom:var(--safe-b)}
+.sheet.show{transform:none}
+.grab{width:42px;height:5px;border-radius:3px;background:var(--pline);margin:9px auto 0;flex:none}
+.sheet .scroll{overflow-y:auto;overscroll-behavior:contain}
+.pd-media{position:relative;margin:10px 14px 0;border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:var(--paper2)}
+.pd-media img{width:100%;height:100%;object-fit:cover;animation:fade .35s}
+.pd-media .noimg{font-size:30px}
+.circ{width:38px;height:38px;border-radius:50%;background:rgba(239,229,214,.94);display:grid;place-items:center;color:var(--ink)}
+.circ svg{width:18px;height:18px}
+.pd-close{position:absolute;top:10px;inset-inline-end:10px;z-index:3}
+.pd-nav{position:absolute;bottom:10px;inset-inline-end:10px;display:flex;gap:8px;z-index:3}
+.pd-body{padding:16px 20px 18px}
+.pd-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.pd-body h2{margin:0;font-family:var(--serif-ar);font-size:24px;line-height:1.35}
+[lang=en] .pd-body h2{font-family:var(--serif-en);font-size:30px;line-height:1.1}
+.pd-body .alt{font-family:var(--serif-en);font-style:italic;color:var(--pmuted);font-size:17px}
+[lang=en] .pd-body .alt{font-family:var(--serif-ar);font-style:normal;font-size:15px}
+.pd-body .pr{font-family:var(--serif-en);font-size:24px;font-weight:600}
+.pd-body .pr.tbd{font-family:var(--sans);font-size:12px;color:var(--pmuted);border:1px dashed var(--pline);padding:3px 8px;border-radius:6px;white-space:nowrap}
+.pd-body .desc{margin:10px 0 0;font-size:15px}
+.blk{margin-top:14px;padding-top:12px;border-top:1px solid var(--pline)}
+.blk h4{margin:0 0 3px;font-size:12px;letter-spacing:.1em;color:var(--copper);font-weight:500}
+.blk p{margin:0;font-size:14px} .blk .na{color:var(--pmuted);font-size:13px}
+.acts{display:flex;gap:10px;padding:12px 20px 16px;border-top:1px solid var(--pline);flex:none}
+.btn{flex:1;height:50px;border-radius:13px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn-p{background:var(--wine);color:#fff}
+.btn-p[disabled]{opacity:.4;cursor:not-allowed}
+.btn-s{flex:0 0 50px;border:1px solid var(--pline);color:var(--wine)}
+.btn-s.wide{flex:1;color:var(--ink)}
+.btn-s svg{width:20px;height:20px} .btn-s.on svg path{fill:currentColor}
+.dr h3{margin:14px 20px 2px;font-family:var(--serif-ar);font-size:22px}
+[lang=en] .dr h3{font-family:var(--serif-en);font-size:26px}
+.dr .sub{margin:0 20px 10px;color:var(--pmuted);font-size:13px}
+.li{display:flex;align-items:center;gap:12px;padding:10px 20px;border-bottom:1px solid var(--pline)}
+.li .ph{width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;background:var(--paper2)}
+.li .ph img{width:100%;height:100%;object-fit:cover}
+.li .t{flex:1;min-width:0;text-align:start} .li .t b{display:block;font-size:15px} .li .t small{color:var(--pmuted)}
+.qty{display:flex;align-items:center;gap:4px;border:1px solid var(--pline);border-radius:30px;padding:2px}
+.qty button{width:30px;height:30px;border-radius:50%;font-size:18px}
+.qty span{min-width:18px;text-align:center;font-weight:600}
+.tot{display:flex;justify-content:space-between;padding:14px 20px;font-weight:600}
+.toast{position:fixed;left:50%;bottom:calc(22px + var(--safe-b));transform:translate(-50%,30px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:30px;font-size:14px;opacity:0;transition:all .3s;z-index:80;pointer-events:none;white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{50%{transform:scale(1.3)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+@media (min-width:760px){
+  .strip .wrap{grid-template-columns:repeat(3,1fr)}
+  .open-pill{display:inline-flex}
+  .sheet{left:50%;right:auto;bottom:50%;width:min(560px,92vw);border-radius:22px;transform:translate(-50%,60%) scale(.97);opacity:0;transition:all .3s}
+  .sheet.show{transform:translate(-50%,50%);opacity:1}
+  .grab{display:none}
+}
+@media (min-width:1100px){
+  nav.main{display:flex}
+  .brand small{display:none}
+  .layout{grid-template-columns:minmax(260px,.95fr) minmax(0,1.35fr) minmax(300px,1.05fr);gap:26px;padding-top:30px;align-items:start}
+  .col-intro{position:sticky;top:94px}
+  .values{display:flex}
+  .intro h1{font-size:44px}
+  [lang=en] .intro h1{font-size:60px}
+  .col-side{position:sticky;top:94px}
+  .tabs-wrap{position:static;padding-top:0}
+  .menucard{max-height:calc(100vh - 210px);overflow-y:auto;scrollbar-width:thin}
+}
+
+/* ---- wine-forward overrides ---- */
+:root{--wine:#9E1F35;--wine-d:#7E1629;--wine-l:#F3DADF}
+header{background:rgba(158,31,53,.97)!important;color:#FBEFE6}
+header.scrolled{border-color:var(--wine-d)}
+.brand{color:#FBEFE6}.brand small{color:#F0CFC7;border-color:rgba(255,255,255,.25)}
+nav.main a{color:#FBEFE6}
+nav.main a.on::after{background:#F3C9A9}
+.ib:hover{background:rgba(255,255,255,.12)}
+.badge{background:#FBEFE6;color:var(--wine)}
+.lang{background:transparent;border-color:rgba(255,255,255,.4);color:#FBEFE6}
+.open-pill{border-color:rgba(255,255,255,.3);color:#FBEFE6}.open-pill b{color:#CFE6B8}.open-pill i{background:#CFE6B8}
+.eyebrow{color:var(--wine)}
+.intro h1{color:var(--wine)}
+.val .ic{color:var(--wine);border-color:rgba(158,31,53,.45)}
+.val.green{background:var(--wine);border-color:var(--wine)}
+.val.green h3{color:#fff}.val.green p{color:#F2D3D2}.val.green .ic{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.tabs{background:#fff}
+.tab.on{background:var(--wine)}
+.mc-head h2{color:var(--wine)}
+.row .pr{color:var(--wine)}
+.row h3 .star{color:var(--wine)}
+.seasonal{background:var(--wine);border-color:var(--wine);color:#FBEFE6}
+.seasonal p,.seasonal .pr.tbd{color:#F2D3D2}
+.seasonal .branch{color:#F3C9A9;opacity:.45}
+.seasonal .seal{color:#FBEFE6;opacity:.7}
+.seasonal button.more{color:#fff;border-color:rgba(255,255,255,.5)}
+.demo{color:#E6B7B9}
+.seasonal .eyebrow{color:#F3C9A9!important}
+.paper-card h3{color:var(--wine)}
+.mini .h svg{color:var(--wine)}
+.mini .big{color:var(--wine)}
+.strip{background:var(--wine);border-top:0;color:#FBEFE6}
+.strip .deco{color:#F3C9A9;opacity:.2!important}
+.si .ic{background:transparent;border-color:rgba(255,255,255,.35);color:#FBEFE6}
+.si p{color:#F2D3D2}
+.fine{color:#E6B7B9}
+.blk h4{color:var(--wine)}
+.pd-body h2{color:var(--wine)}
+.pd-body .pr{color:var(--wine)}
+.toast{background:var(--wine)}
+.btn-p{background:var(--wine)}
+
+/* ---- swapped: wine background, white/cream accents ---- */
+body{background:var(--wine);color:#FBEFE6}
+header{background:rgba(255,253,248,.97)!important;color:var(--ink)}
+header.scrolled{border-color:var(--pline)}
+.brand{color:var(--wine)}.brand small{color:var(--pmuted);border-color:var(--pline)}
+nav.main a{color:var(--ink)} nav.main a.on::after{background:var(--wine)}
+.ib:hover{background:var(--paper2)}
+.badge{background:var(--wine);color:#fff}
+.lang{background:#fff;border-color:var(--pline);color:var(--ink)}
+.open-pill{border-color:var(--pline);color:var(--ink)}.open-pill b{color:var(--ok)}.open-pill i{background:var(--ok)}
+.col-intro .eyebrow,.tabs-wrap+* .eyebrow{color:#F3C9A9}
+.intro .eyebrow{color:#F3C9A9}
+.intro h1{color:#fff}
+.intro p{color:#F2D3D2}
+.val{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18)}
+.val h3{color:#fff}.val p{color:#F2D3D2}
+.val .ic{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.val.green{background:#FFFDF8;border-color:#FFFDF8}
+.val.green h3{color:var(--wine)}.val.green p{color:var(--pmuted)}.val.green .ic{color:var(--wine);border-color:rgba(158,31,53,.4)}
+.deco{color:#F3C9A9;opacity:.25}
+.search{background:#fff;border-color:transparent}
+.fbtn{background:#fff;border-color:transparent;color:var(--ink)}
+.fbtn.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tabs-wrap{background:linear-gradient(var(--wine) 75%,rgba(158,31,53,0))}
+.tabs{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25)}
+.tab{color:#FBEFE6}
+.tab.on{background:#FFFDF8;color:var(--wine)}
+.menucard{border-color:transparent;box-shadow:0 28px 60px -30px rgba(40,5,12,.6)}
+.seasonal{background:#FFFDF8;border-color:#FFFDF8;color:var(--ink)}
+.seasonal h3{color:var(--wine)}
+.seasonal p,.seasonal .pr.tbd{color:var(--pmuted)}
+.seasonal .branch{color:var(--copper);opacity:.35}
+.seasonal .seal{color:var(--wine);opacity:.7}
+.seasonal button.more{color:var(--wine);border-color:rgba(158,31,53,.4)}
+.demo{color:#A8957F}
+.seasonal .eyebrow{color:var(--copper)!important}
+.paper-card{border-color:transparent}
+.mini{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18);color:#fff}
+.mini .eyebrow{color:#F3C9A9}
+.mini .h svg{color:#F3C9A9}
+.mini .big{color:#fff}
+.mini .sm{color:#F2D3D2}
+.mini .status{border-color:rgba(255,255,255,.18);color:#CFE6B8}.mini .status i{background:#CFE6B8}
+.pending{color:#E6B7B9;border-color:rgba(255,255,255,.25)}
+.btn-copper{background:#FFFDF8;color:var(--wine)}
+.strip{background:#FFFDF8;color:var(--ink)}
+.strip .deco{color:var(--copper);opacity:.18!important}
+.si .ic{border-color:var(--pline);color:var(--wine)}
+.si h4{color:var(--wine)}
+.si p{color:var(--pmuted)}
+.fine{color:#A8957F}
+.toast{background:#FFFDF8;color:var(--wine)}
+
+/* ---- brand guide palette ---- */
+:root{--wine:#9F1344;--wine-d:#7E0F36;--brand-cream:#F1DAC0;--brand-pink:#DD8F8F;--brand-maroon:#540B0E}
+body{background:var(--wine)}
+header{background:rgba(241,218,192,.97)!important}
+.brand-logo{height:30px;width:auto;display:block}
+.brand small{color:#7E5A45}
+.menucard,.seasonal,.paper-card,.val.green,.strip{background:#FFF8F0}
+.paper2{background:var(--brand-cream)}
+.tab.on{background:var(--brand-cream)!important;color:var(--wine)!important}
+.intro .eyebrow,.mini .eyebrow,.mini .h svg,.seasonal .eyebrow{color:var(--brand-pink)!important}
+.btn-copper{background:var(--brand-cream)!important}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <defs>
+  <symbol id="logo" viewBox="0 0 300 100"><g fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M80 16C62 3 32 5 17 23C3 41 7 70 27 84C45 96 67 94 83 83"/><circle cx="141" cy="52" r="39"/><path d="M213 9V93"/><path d="M213 52C231 28 263 13 292 7C284 35 253 52 213 52Z"/><path d="M213 52C251 54 290 62 290 76C290 91 251 95 213 93"/></g></symbol>
+  <symbol id="heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M12 20s-7-4.4-9.2-8.6C1.2 8.2 3 4.8 6.4 4.5c2-.2 3.4.9 4.4 2.4 1-1.5 2.4-2.6 4.4-2.4 3.4.3 5.2 3.7 3.6 6.9C19 15.6 12 20 12 20z"/></symbol>
+  <symbol id="branch" viewBox="0 0 200 220"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M180 10C140 50 110 100 70 210"/><path d="M150 45c-20-6-40 2-48 18 18 6 38 0 48-18z"/><path d="M150 45c-4 6-24 14-48 18"/><path d="M128 85c20-10 44-6 54 10-20 8-42 4-54-10z"/><path d="M128 85c14 2 36 6 54 10"/><path d="M112 120c-22-4-42 6-48 24 20 4 40-4 48-24z"/><path d="M112 120c-8 8-28 18-48 24"/><path d="M98 155c18-12 42-12 54 2-18 10-40 10-54-2z"/><path d="M98 155c16 0 36 0 54 2"/><circle cx="160" cy="28" r="6"/><circle cx="170" cy="40" r="5"/><circle cx="152" cy="18" r="4"/><circle cx="84" cy="182" r="5"/><circle cx="74" cy="194" r="4"/></g></symbol>
+  <symbol id="asir" viewBox="0 0 260 120"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"><path d="M0 92L46 40l20 18 34-44 30 36 22-16 40 42 28-22 40 40"/><path d="M60 96l16-28 10 10 14-22 18 26"/><path d="M38 52l-6 10M98 22l-8 14M128 46l-6 10" opacity=".7"/><rect x="150" y="70" width="22" height="40"/><rect x="172" y="58" width="18" height="52"/><rect x="190" y="76" width="24" height="34"/><path d="M150 70l4-5h14l4 5M172 58l3-5h12l3 5M190 76l3-4h18l3 4"/><g stroke-width="1"><path d="M156 80h4M164 80h4M156 92h4M164 92h4M177 66h4M177 78h4M177 90h4M196 86h4M204 86h4M196 98h4M204 98h4"/></g><path d="M0 110h260"/></g></symbol>
+  <symbol id="seal" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="34"/><path d="M50 34c-6 6-6 14 0 20 6-6 6-14 0-20zM50 54c-8-2-14 2-16 8 8 2 14-2 16-8zM50 54c8-2 14 2 16 8-8 2-14-2-16-8z"/></g><text font-size="9.5" letter-spacing="3" fill="currentColor" font-family="Georgia,serif"><textPath href="#sealpath">SEASONAL · COB · WINTER ·</textPath></text><path id="sealpath" d="M50 10a40 40 0 1 1-.1 0" fill="none"/></symbol>
+ </defs>
+</svg>
+
+<header id="hdr">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="COB"><img src="img/logo-crimson.png" alt="COB" class="brand-logo"><small id="hdrCity"></small></a>
+  <nav class="main" aria-label="main">
+   <a href="#menu" class="on" data-t="navMenu"></a><a href="#picks" data-t="navPicks"></a><a href="#hours" data-t="navHours"></a><a href="#visit" data-t="navVisit"></a>
+  </nav>
+  <div class="tools">
+   <span class="open-pill" id="openPill"><i></i><b data-t="openNow"></b><span id="openTxt"></span></span>
+   <button class="ib" id="favBtn" aria-label="fav"><svg><use href="#heart"/></svg><span class="badge" id="favCount" data-n="0"></span></button>
+   <button class="ib" id="cartBtn" aria-label="list" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="badge" id="cartCount" data-n="0"></span></button>
+   <button class="lang" id="langBtn">EN</button>
+  </div>
+ </div>
+</header>
+
+<main class="wrap layout" id="top">
+ <section class="col-intro intro">
+  <div class="eyebrow" data-t="eyebrow"></div>
+  <h1 id="h1"></h1>
+  <p id="lead"></p>
+  <div class="values">
+   <div class="val green"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 15c3-6 13-6 16 0"/><path d="M6 15c0 3 2.5 5 6 5s6-2 6-5"/><path d="M9 9c0-2 1-4 3-5M13 9c0-2 1-3 2.5-4"/></svg></span><div><h3 data-t="v1t"></h3><p data-t="v1p"></p></div></div>
+   <div class="val"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21c-5-3-7-7-7-11a7 7 0 0 1 14 0c0 4-2 8-7 11z"/><path d="M12 21V9M12 13l-3-3M12 16l3-3"/></svg></span><div><h3 data-t="v2t"></h3><p data-t="v2p"></p></div></div>
+   <div class="val"><span class="ic"><svg><use href="#heart"/></svg></span><div><h3 data-t="v3t"></h3><p data-t="v3p"></p></div></div>
+  </div>
+  <svg class="deco" style="width:170px;bottom:-200px;inset-inline-start:-40px" viewBox="0 0 200 220"><use href="#branch"/></svg>
+ </section>
+
+ <section class="col-menu" id="menu">
+  <div class="searchrow">
+   <label class="search" id="sbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" autocomplete="off" aria-label="search"><button class="clr" id="qClr" aria-label="clear">×</button></label>
+   <button class="fbtn" id="availBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5 9-10"/></svg><span data-t="avail"></span></button>
+  </div>
+  <div class="tabs-wrap"><div class="tabs" id="tabs" role="tablist"></div></div>
+  <div class="menucard" id="card"></div>
+ </section>
+
+ <aside class="col-side">
+  <div class="seasonal" id="seasonCard"></div>
+  <div class="paper-card" id="picks">
+   <div class="eyebrow" data-t="picksEye"></div>
+   <h3 data-t="picksTitle"></h3>
+   <p data-t="picksText"></p>
+   <div class="picks" id="picksRow"></div>
+   <svg class="mnt" viewBox="0 0 260 120" style="opacity:.25"><use href="#asir"/></svg>
+  </div>
+  <div class="duo">
+   <div class="mini" id="hours"><div class="h"><span class="eyebrow" data-t="hoursEye"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div class="big" id="hoursBig"></div><div class="sm" data-t="hoursSub"></div><div class="status"><span data-t="openNow"></span><i></i></div></div>
+   <div class="mini" id="visit"><div class="h"><span class="eyebrow" data-t="visitEye"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div class="big" id="visitCity"></div><div class="sm" id="visitAddr"></div><div id="visitAct"></div></div>
+  </div>
+ </aside>
+</main>
+
+<section class="strip">
+ <svg class="deco" style="width:260px;bottom:-40px;inset-inline-end:-30px;opacity:.25" viewBox="0 0 200 220"><use href="#branch"/></svg>
+ <div class="wrap">
+  <div class="si"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 11h14l-1 4a4 4 0 0 1-4 3h-4a4 4 0 0 1-4-3z"/><path d="M8 11c0-3 2-5 4-6M12 11c0-2 1.5-4 3.5-5"/></svg></span><div><h4 data-t="s1t"></h4><p data-t="s1p"></p></div></div>
+  <div class="si"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><ellipse cx="12" cy="12" rx="5.5" ry="8"/><path d="M12 4c-2 4 2 12 0 16"/></svg></span><div><h4 data-t="s2t"></h4><p data-t="s2p"></p></div></div>
+  <div class="si"><span class="ic"><svg viewBox="0 0 260 120" style="width:34px"><use href="#asir"/></svg></span><div><h4 data-t="s3t"></h4><p data-t="s3p"></p></div></div>
+ </div>
+ <div class="fine" data-t="fine"></div>
+</section>
+
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="pdT"><div class="grab"></div><div class="scroll" id="sb"></div><div id="sf"></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script id="menu-data" type="application/json">{"_note":"الأسعار والأسماء معتمدة من سلطان (21 نوفمبر 2026). المكونات ومعلومات الحساسية غير مُدخلة بعد.","brand":{"name":{"ar":"كوب","en":"COB"},"tagline":{"ar":"نخبز يومك","en":"We Bake Your Day"},"welcome":{"ar":"قهوة مختصة ومخبوزات تُخبز كل صباح، في مكان دافئ تعيشه كل يوم.","en":"Specialty coffee and pastries baked every morning, in a warm place you live every day."},"hero":"img/hot-latte.jpg"},"branch":{"city":{"ar":"خميس مشيط","en":"Khamis Mushait"},"hours":{"ar":"مفتوح ٢٤ ساعة","en":"Open 24 hours"},"address":null,"mapUrl":null,"phone":null,"instagram":null,"tiktok":null},"settings":{"cartEnabled":true,"hideUnavailable":true,"currency":{"ar":"ر.س","en":"SAR"}},"categories":[{"id":"breakfast","name":{"ar":"الفطور","en":"Breakfast"}},{"id":"cakes","name":{"ar":"الكيك والحلويات","en":"Cakes & Desserts"}},{"id":"bakery","name":{"ar":"المخبوزات","en":"Bakery"}},{"id":"tarts","name":{"ar":"التارت","en":"Tarts"}},{"id":"cookies","name":{"ar":"الكوكيز","en":"Cookies"}},{"id":"hot-coffee","name":{"ar":"القهوة الساخنة","en":"Hot Coffee"}},{"id":"iced-coffee","name":{"ar":"القهوة الباردة","en":"Iced Coffee"}}],"items":[{"id":"shakshuka-croissant","cat":"breakfast","name":{"ar":"كروسان شكشوكة","en":"Shakshuka Croissant"},"desc":{"ar":"كروسان طازج محشو بشكشوكة غنية بالنكهات، يقدم بلمسة شرقية مميزة.","en":"Fresh croissant filled with richly flavored shakshuka, with a distinctive oriental touch."},"price":29,"image":"img/spicy-croissant.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"truffle-egg-croissant","cat":"breakfast","name":{"ar":"ترافل إيغ كروسان","en":"Truffle Egg Croissant"},"desc":{"ar":"كروسان هش محشو بالبيض مع نكهة زيت الترافل الغنية، لتجربة فطور مميزة.","en":"Flaky croissant filled with eggs and rich truffle oil flavor, for a special breakfast."},"price":28,"image":"img/egg-croissant.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"halloumi-sourdough-pesto","cat":"breakfast","name":{"ar":"حلومي ساوردو بالبيستو","en":"Halloumi Sourdough Pesto"},"desc":{"ar":"خبز ساوردو محمص مع جبنة الحلوم المشوية وصوص البيستو العطري.","en":"Toasted sourdough with grilled halloumi and aromatic pesto sauce."},"price":27,"image":"img/grilled-cheese-tomato-soup.jpg","featured":true,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"spicy-tuna-sourdough","cat":"breakfast","name":{"ar":"سبايسي تونة ساوردو","en":"Spicy Tuna Sourdough"},"desc":{"ar":"خبز ساوردو محمص محشو بالتونة المتبلة بصلصة حارة، بمذاق غني ومتوازن.","en":"Toasted sourdough filled with tuna seasoned in a spicy sauce, rich and balanced."},"price":26,"image":"img/spicy-tuna-sandwich.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"turkey-sourdough","cat":"breakfast","name":{"ar":"تركي ساوردو بالطماطم المجففة","en":"Turkey Sourdough"},"desc":{"ar":"خبز ساوردو محمص محشو بشرائح الديك الرومي والطماطم المجففة، بمزيج من النكهات المميزة.","en":"Toasted sourdough with turkey slices and sun-dried tomatoes, a distinctive mix of flavors."},"price":29,"image":"img/turkey-sandwich.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"salmon-benedict","cat":"breakfast","name":{"ar":"سالمون بينيديكت","en":"Salmon Benedict"},"desc":{"ar":"خبز بريوش طري مع السلمون وبيض البينيديكت، مغطى بصوص هولنديز كريمي.","en":"Soft brioche with salmon and benedict eggs, topped with creamy hollandaise sauce."},"price":45,"image":"img/salmon-benedict.jpg","featured":true,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"avocado-benedict","cat":"breakfast","name":{"ar":"أفوكادو بينيديكت","en":"Avocado Benedict"},"desc":{"ar":"خبز بريوش طري مع الأفوكادو وبيض البينيديكت، يقدم مع صوص هولنديز كريمي.","en":"Soft brioche with avocado and benedict eggs, served with creamy hollandaise sauce."},"price":38,"image":"img/eggs-benedict.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"date-oatmeal","cat":"breakfast","name":{"ar":"شوفان بالتمر","en":"Date Oatmeal"},"desc":{"ar":"شوفان كريمي محضر بعناية مع التمر، لفطور غني ولذيذ.","en":"Creamy oatmeal carefully prepared with dates, for a rich and delicious breakfast."},"price":22,"image":null,"featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"berry-strawberry-granola","cat":"breakfast","name":{"ar":"جرانولا بالتوت والفراولة","en":"Berry & Strawberry Granola"},"desc":{"ar":"جرانولا مقرمشة تقدم مع التوت الأحمر والفراولة، لتوازن مثالي بين القرمشة والانتعاش.","en":"Crunchy granola served with red berries and strawberries, the perfect balance of crunch and freshness."},"price":25,"image":"img/granola-bowl.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"classic-pancakes","cat":"breakfast","name":{"ar":"كلاسيك بانكيك","en":"Classic Pancakes"},"desc":{"ar":"طبقات من البانكيك الهش والطري، تقدم مع شراب القيقب والزبدة.","en":"Layers of light, fluffy pancakes served with maple syrup and butter."},"price":33,"image":null,"featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"bacon-pancakes","cat":"breakfast","name":{"ar":"بيكن بانكيك","en":"Bacon Pancakes"},"desc":{"ar":"بانكيك طري يقدم مع شرائح البيكن المقرمشة، بمزيج يجمع بين المذاق الحلو والمالح.","en":"Soft pancakes served with crispy bacon slices, a sweet and savory combination."},"price":38,"image":"img/pancake-eggs-pastrami.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"banana-french-toast","cat":"breakfast","name":{"ar":"فرنش توست بالموز","en":"Banana French Toast"},"desc":{"ar":"شرائح بريوش ذهبية محضرة على الطريقة الفرنسية، تقدم مع الموز ولمسة حلوة مميزة.","en":"Golden brioche slices prepared the French way, served with banana and a distinctive sweet touch."},"price":36,"image":"img/banana-lotus-french-toast.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"classic-french-toast","cat":"breakfast","name":{"ar":"فرنش توست كلاسيك","en":"Classic French Toast"},"desc":{"ar":"شرائح بريوش مغموسة بخليط البيض والحليب، محمرة حتى تصبح ذهبية وطرية.","en":"Brioche slices dipped in egg and milk, browned until golden and tender."},"price":35,"image":"img/classic-french-toast.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"custard-french-toast","cat":"breakfast","name":{"ar":"فرنش توست كاسترد","en":"Custard French Toast"},"desc":{"ar":"فرنش توست من البريوش الطري مع كاسترد كريمي غني، يجمع بين القوام الناعم والغني.","en":"Soft brioche French toast with rich, creamy custard — smooth and indulgent."},"price":35,"image":"img/berry-brioche.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"savory-turkey-brioche-pudding","cat":"breakfast","name":{"ar":"بودينغ بريوش مالح بالتركي","en":"Savory Turkey Brioche Pudding"},"desc":{"ar":"بودينغ بريوش طري ومخبوز مع شرائح الديك الرومي، يقدم مع صوص الطماطم الغني.","en":"Soft baked brioche pudding with turkey slices, served with rich tomato sauce."},"price":35,"image":"img/baked-cheese-casserole.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"honey-qashta-cream-croissant","cat":"breakfast","name":{"ar":"كرواسون القشطة والعسل","en":"Honey Qashta Cream Croissant"},"desc":{"ar":"كروسان فرنسي بطبقاته الهشة، يقدم مع قشطة وعسل مع التوت.","en":"Flaky French croissant served with qashta cream, honey and berries."},"price":27,"image":"img/tres-leches-croissant-berry.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"date-caramel-cream-croissant","cat":"breakfast","name":{"ar":"كروسان بكريمة التمر والكراميل","en":"Date Caramel Cream Croissant"},"desc":{"ar":"كروسان فرنسي هش يقدم مع كريمة التمر الغنية وصوص الكراميل، بمزيج دافئ من النكهات.","en":"Flaky French croissant served with rich date cream and caramel sauce, a warm blend of flavors."},"price":28,"image":"img/tres-leches-croissant-dates.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"salmon-bagel","cat":"breakfast","name":{"ar":"بيقل سلمون","en":"Salmon Bagel"},"desc":{"ar":"بيقل محشو بسلمون مدخن وكريم تشيز وجرجير وطماطم وكبر وشبت.","en":"Bagel with smoked salmon, cream cheese, arugula, tomato, capers and dill."},"price":38,"image":"img/salmon-bagel.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"double-chocolate-cake","cat":"cakes","name":{"ar":"دبل شوكلت كيك","en":"Double Chocolate Cake"},"desc":{"ar":"كيك شوكولاتة غني بطبقات من الشوكولاتة، مغطى بغاناش شوكولاتة الحليب الكريمي لمذاق شوكولاتة لا يُقاوم.","en":"Rich chocolate cake layered with chocolate, covered in creamy milk chocolate ganache for an irresistible chocolate taste."},"price":31,"image":"img/double-chocolate.jpg","featured":true,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"italian-vanilla-tiramisu","cat":"cakes","name":{"ar":"تيراميسو فانيلا إيطالي","en":"Italian Vanilla Tiramisu"},"desc":{"ar":"تيراميسو إيطالي كلاسيكي، محضر بكريمة الماسكاربوني والفانيليا الطبيعية، مع طبقات من البسكويت المغموس بالقهوة.","en":"Classic Italian tiramisu made with mascarpone cream and natural vanilla, layered with coffee-soaked biscuits."},"price":30,"image":"img/tiramisu.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"raspberry-lime-cheesecake","cat":"cakes","name":{"ar":"تشيز كيك التوت والليمون","en":"Raspberry & Lime Cheesecake"},"desc":{"ar":"تشيز كيك كريمي بقوام ناعم، يجمع بين حلاوة التوت الأحمر وانتعاش الليمون الأخضر، على قاعدة بسكويت مقرمشة.","en":"Smooth, creamy cheesecake combining sweet raspberry and fresh lime on a crunchy biscuit base."},"price":32,"image":"img/berry-cheesecake.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"cinnamon-roll-cheesecake","cat":"cakes","name":{"ar":"تشيز كيك سينامون رول","en":"Cinnamon Roll Cheesecake"},"desc":{"ar":"تشيز كيك كريمي بنكهة السينابون، مغطى بطبقة من كريمة القرفة الغنية بلمسة دافئة من التوابل.","en":"Creamy cinnamon-roll cheesecake topped with rich cinnamon cream and a warm touch of spice."},"price":31,"image":"img/chocolate-cheesecake.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"date-cake-with-toasted-milk-cream","cat":"cakes","name":{"ar":"كيك التمر بكريمة الحليب المحمّص","en":"Date Cake with Toasted Milk Cream"},"desc":{"ar":"كيك تمر طري وغني، يقدم مع كريمة الحليب المحمّص وغاناش القهوة السعودية، بمزيج يجمع النكهات السعودية الأصيلة.","en":"Soft, rich date cake served with toasted milk cream and Saudi coffee ganache, bringing together authentic Saudi flavors."},"price":28,"image":null,"featured":true,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"mini-raspberry-lemon-cake","cat":"cakes","name":{"ar":"ميني كيك الليمون والتوت","en":"Mini Raspberry Lemon Cake"},"desc":{"ar":"كيك ليمون صغير بقوام طري ونكهة منعشة، مع لمسات من التوت الأحمر التي تضيف توازناً رائعاً بين الحلاوة والحموضة.","en":"Soft mini lemon cake with a fresh flavor and touches of raspberry for a lovely sweet-tart balance."},"price":16,"image":"img/berry-cake.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"french-galette-almond-apricot","cat":"bakery","name":{"ar":"جاليت فرنسي باللوز والمشمش","en":"French Galette – Almond & Apricot"},"desc":{"ar":"جاليت فرنسي بعجينة ذهبية وهشة، محشو بكريمة اللوز الناعمة ومربى المشمش الغني بالنكهة.","en":"French galette with golden, flaky pastry, filled with smooth almond cream and flavorful apricot jam."},"price":19,"image":"img/apricot-danish.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"french-apple-galette","cat":"bakery","name":{"ar":"جاليت التفاح الفرنسي","en":"French Apple Galette"},"desc":{"ar":"جاليت فرنسي بالتفاح، يجمع بين حشوة التفاح ومربى التوت الأحمر والبلوبيري داخل عجينة ذهبية مخبوزة حتى الكمال.","en":"French apple galette combining apple filling with raspberry and blueberry jam in golden pastry baked to perfection."},"price":18,"image":null,"featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"milk-chocolate-ganache-donut","cat":"bakery","name":{"ar":"دونات غاناش شوكولاتة الحليب","en":"Milk Chocolate Ganache Donut"},"desc":{"ar":"دونات هشة وطرية، محشوة بغاناش شوكولاتة الحليب الكريمي والغني.","en":"Light, soft donut filled with rich, creamy milk chocolate ganache."},"price":17,"image":"img/donut.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"plain-croissant","cat":"bakery","name":{"ar":"كرواسون سادة","en":"Plain Croissant"},"desc":{"ar":"كرواسون فرنسي كلاسيكي بطبقات عجين مورقة وهشة، مخبوز حتى يكتسب لوناً ذهبياً وقواماً مقرمشاً.","en":"Classic French croissant with flaky, layered dough, baked to a golden, crisp finish."},"price":14,"image":"img/plain-croissant.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"almond-croissant","cat":"bakery","name":{"ar":"كرواسون اللوز","en":"Almond Croissant"},"desc":{"ar":"كرواسون فرنسي محشو بكريمة اللوز الغنية، مخبوز حتى يصبح ذهبياً ومقرمشاً، مع لمسة من اللوز.","en":"French croissant filled with rich almond cream, baked golden and crisp with a touch of almonds."},"price":22,"image":"img/almond-croissant.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"blueberry-custard-danish","cat":"bakery","name":{"ar":"دانيش الكاسترد والبلوبيري","en":"Blueberry Custard Danish"},"desc":{"ar":"دانيش فرنسي بعجينة مورقة وهشة، محشو بكريمة الكاسترد والبلوبيري، ومزين برشة من السكر البودرة.","en":"French Danish with flaky pastry, filled with custard cream and blueberries, finished with powdered sugar."},"price":19,"image":"img/cheesecake-danish.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"roasted-pecan-tart","cat":"tarts","name":{"ar":"تارت البيكان المحمّص","en":"Roasted Pecan Tart"},"desc":{"ar":"تارت البيكان المحمّص، بحشوة غنية من جوز البيكان مع شراب القيقب، على قاعدة تارت ذهبية ومقرمشة.","en":"Roasted pecan tart with a rich pecan and maple syrup filling on a golden, crisp tart base."},"price":29,"image":"img/pecan-tart.jpg","featured":true,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"double-chocolate-cookies","cat":"cookies","name":{"ar":"دبل شوكلت كوكيز","en":"Double Chocolate Cookies"},"desc":{"ar":"كوكيز شوكولاتة غنية، محضرة بالشوكولاتة ومليئة بغاناش الشوكولاتة لمذاق مكثف لعشاق الشوكولاتة.","en":"Rich chocolate cookies filled with chocolate ganache for an intense taste chocolate lovers will love."},"price":14,"image":"img/chocolate-cookie.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"classic-chocolate-chip-cookies","cat":"cookies","name":{"ar":"كلاسيك شوكلت تشيب كوكيز","en":"Classic Chocolate Chip Cookies"},"desc":{"ar":"كوكيز كلاسيكية مخبوزة بقوام طري من الداخل وأطراف ذهبية، محشوة بقطع الشوكولاتة الغنية.","en":"Classic cookies, soft inside with golden edges, packed with rich chocolate chunks."},"price":14,"image":"img/classic-cookie.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"espresso","cat":"hot-coffee","name":{"ar":"إسبريسو","en":"Espresso"},"desc":{"ar":"شوت إسبريسو مركّز من حبوب مختصة، بطعم غني وكريمة ذهبية.","en":"A concentrated shot of specialty espresso with rich crema."},"price":13,"image":"img/espresso.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"macchiato","cat":"hot-coffee","name":{"ar":"ماكياتو","en":"Macchiato"},"desc":{"ar":"شوت إسبريسو مع لمسة رغوة حليب.","en":"Espresso marked with a touch of milk foam."},"price":13,"image":"img/macchiato.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"cortado","cat":"hot-coffee","name":{"ar":"كورتادو","en":"Cortado"},"desc":{"ar":"إسبريسو مع كمية متساوية من الحليب المبخّر، متوازن وناعم.","en":"Espresso cut with an equal amount of steamed milk — smooth and balanced."},"price":16,"image":"img/cortado.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"flat-white","cat":"hot-coffee","name":{"ar":"فلات وايت","en":"Flat White"},"desc":{"ar":"إسبريسو مزدوج مع حليب مبخّر بطبقة رغوة خفيفة وناعمة.","en":"Double espresso with velvety steamed milk and a thin layer of microfoam."},"price":17,"image":"img/flat-white.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"cappuccino","cat":"hot-coffee","name":{"ar":"كابتشينو","en":"Cappuccino"},"desc":{"ar":"إسبريسو مع حليب مبخّر ورغوة كثيفة.","en":"Espresso with steamed milk and a thick layer of foam."},"price":17,"image":"img/cappuccino.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"hot-latte","cat":"hot-coffee","name":{"ar":"لاتيه حار","en":"Hot Latte"},"desc":{"ar":"إسبريسو مع حليب مبخّر كريمي ورغوة خفيفة.","en":"Espresso with creamy steamed milk and light foam."},"price":19,"image":"img/hot-latte.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"hot-spanish-latte","cat":"hot-coffee","name":{"ar":"سبانش لاتيه حار","en":"Hot Spanish Latte"},"desc":{"ar":"إسبريسو مع حليب مبخّر محلّى بالحليب المكثّف.","en":"Espresso with steamed milk sweetened with condensed milk."},"price":19,"image":"img/hot-latte.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"hot-americano","cat":"hot-coffee","name":{"ar":"أمريكانو حار","en":"Hot Americano"},"desc":{"ar":"إسبريسو مع ماء ساخن، قهوة سوداء خفيفة وواضحة.","en":"Espresso topped with hot water — a clean, light black coffee."},"price":14,"image":"img/hot-americano.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"hot-v60","cat":"hot-coffee","name":{"ar":"V60 حار","en":"Hot V60"},"desc":{"ar":"قهوة مختصة مقطّرة يدويًا بطريقة V60، تبرز نكهات المحصول.","en":"Hand-brewed specialty coffee using the V60 method, highlighting the beans' flavor notes."},"price":20,"image":"img/hot-v60.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"iced-latte","cat":"iced-coffee","name":{"ar":"لاتيه بارد","en":"Iced Latte"},"desc":{"ar":"إسبريسو مع حليب بارد وثلج، منعش وخفيف.","en":"Espresso over cold milk and ice — light and refreshing."},"price":20,"image":"img/iced-latte.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"iced-spanish-latte","cat":"iced-coffee","name":{"ar":"سبانش لاتيه بارد","en":"Iced Spanish Latte"},"desc":{"ar":"إسبريسو مع حليب بارد محلّى بالحليب المكثّف وثلج.","en":"Espresso with cold milk sweetened with condensed milk, over ice."},"price":23,"image":"img/iced-spanish-latte.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"iced-americano","cat":"iced-coffee","name":{"ar":"أمريكانو بارد","en":"Iced Americano"},"desc":{"ar":"إسبريسو مع ماء بارد وثلج، منعش بدون حليب.","en":"Espresso with cold water and ice — refreshing, no milk."},"price":16,"image":"img/iced-americano.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]},{"id":"iced-v60","cat":"iced-coffee","name":{"ar":"V60 بارد","en":"Iced V60"},"desc":{"ar":"قهوة V60 مقطّرة على الثلج، منعشة وصافية.","en":"V60 coffee brewed over ice — clean and refreshing."},"price":21,"image":"img/iced-v60.jpg","featured":false,"seasonal":false,"available":true,"ingredients":null,"allergens":null,"addons":[]}]}</script>
+<script>
+const T={
+ ar:{navMenu:"المنيو",navPicks:"المختارات",navHours:"الساعات",navVisit:"الزيارة",openNow:"مفتوح الآن",eyebrow:"منيو اليوم",h1:"منيو كوب،\nبلمسة واحدة.",lead:"قهوتنا ومخبوزاتنا وفطورنا وأسعارها، في مكان واحد سهل التصفح.",v1t:"يُخبز كل صباح",v1p:"مخبوزاتنا تُحضّر يوميًا في معملنا، عشان توصلك طازجة.",v2t:"مواد مختارة بعناية",v2p:"نختار مكوناتنا بجودة عالية، لأن التفاصيل تصنع الفرق.",v3t:"يُحضّر عند الطلب",v3p:"قهوتك تنحضّر لك أنت، في وقتها.",avail:"المتوفر",search:"ابحث في المنيو…",all:"الكل",favs:"المفضلة",items:"منتج",priceTbd:"السعر قريبًا",featured:"مميّز",seasonal:"موسمي",soldout:"غير متوفر",seasonEye:"منتج الموسم",seasonMore:"التفاصيل",seasonDemo:"اختيار الموسم تجريبي — يُحدَّث من لوحة التحكم.",picksEye:"الأكثر طلبًا",picksTitle:"اختيارات كوب",picksText:"المنتجات اللي يرجع لها ضيوفنا كل مرة.",hoursEye:"ساعات العمل",hoursSub:"كل أيام الأسبوع",visitEye:"زورونا",pendingLoc:"العنوان ورابط الخريطة يُضافان قريبًا.",dir:"الاتجاهات",s1t:"طازج كل يوم",s1p:"إنتاجنا يبدأ مع أول الصباح.",s2t:"قهوة مختصة",s2p:"إسبريسو وقهوة مقطّرة تُحضّر بعناية.",s3t:"من قلب عسير",s3p:"هويتنا مستوحاة من جبال المنطقة وتراثها.",fine:"الأسعار بالريال السعودي. المكونات ومعلومات الحساسية تُضاف قريبًا.",ingredients:"المكونات",allergens:"الحساسية",addons:"الإضافات",na:"لم تُضف بعد.",allergyNa:"لم تُعتمد بعد — اسأل فريقنا عن أي حساسية.",add:"أضف لقائمة طلبي",added:"أُضيف لقائمة طلبك",favAdd:"أُضيف للمفضلة",favRem:"أُزيل من المفضلة",emptyT:"ما لقينا شي",emptyS:"جرّب كلمة ثانية أو امسح الفلتر.",favEmptyT:"المفضلة فاضية",favEmptyS:"اضغط ♡ على أي منتج عشان تحفظه هنا.",cartT:"قائمة طلبي",cartS:"اعرض القائمة على الكاشير — الطلب والدفع من الفرع.",cartEmpty:"قائمتك فاضية.",total:"الإجمالي",totalTbd:"يُحسب عند الكاشير",clear:"مسح",close:"إغلاق",prev:"السابق",next:"التالي",viewAll:"عرض المنيو كامل",loadErr:"تعذّر تحميل المنيو. حدّث الصفحة.",remove:"إزالة"},
+ en:{navMenu:"Menu",navPicks:"Picks",navHours:"Hours",navVisit:"Visit",openNow:"Open now",eyebrow:"Today's menu",h1:"The COB menu,\none tap away.",lead:"Coffee, pastries, breakfast and prices — all in one place, easy to browse.",v1t:"Baked every morning",v1p:"Our pastries are made daily in our own kitchen, so they reach you fresh.",v2t:"Carefully chosen ingredients",v2p:"We pick high-quality ingredients, because details make the difference.",v3t:"Made to order",v3p:"Your coffee is made for you, right when you order.",avail:"Available",search:"Search the menu…",all:"All",favs:"Favorites",items:"items",priceTbd:"Price soon",featured:"Featured",seasonal:"Seasonal",soldout:"Unavailable",seasonEye:"Seasonal feature",seasonMore:"Details",seasonDemo:"Seasonal pick is sample data — updated from the dashboard.",picksEye:"Most loved",picksTitle:"COB favorites",picksText:"The items our guests come back for.",hoursEye:"Open today",hoursSub:"Every day of the week",visitEye:"Visit COB",pendingLoc:"Address and map link coming soon.",dir:"Get directions",s1t:"Fresh daily",s1p:"Baking starts with the first light.",s2t:"Specialty coffee",s2p:"Espresso and pour-overs, made with care.",s3t:"Rooted in Asir",s3p:"Our identity draws on the region's mountains and heritage.",fine:"Prices in Saudi riyals. Ingredients and allergen info coming soon.",ingredients:"Ingredients",allergens:"Allergens",addons:"Add-ons",na:"Not added yet.",allergyNa:"Not confirmed yet — ask our team about any allergy.",add:"Add to my list",added:"Added to your list",favAdd:"Added to favorites",favRem:"Removed from favorites",emptyT:"Nothing found",emptyS:"Try another word or clear the filter.",favEmptyT:"No favorites yet",favEmptyS:"Tap ♡ on any item to save it here.",cartT:"My list",cartS:"Show this list at the counter — ordering and payment happen in store.",cartEmpty:"Your list is empty.",total:"Total",totalTbd:"Calculated at the counter",clear:"Clear",close:"Close",prev:"Previous",next:"Next",viewAll:"View full menu",loadErr:"Couldn't load the menu. Please refresh.",remove:"Remove"}
+};
+const store={get(k,d){try{const v=localStorage.getItem("cob_"+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem("cob_"+k,JSON.stringify(v))}catch(e){}}};
+let D=null,lang=store.get("lang","ar"),q="",cat=null,avail=false,favs=new Set(store.get("favs",[])),cart=store.get("cart",{}),cur=null,vis=[];
+function track(ev,p={}){(window.dataLayer=window.dataLayer||[]).push({event:ev,...p,lang,ts:Date.now()})}
+const src=new URLSearchParams(location.search).get("src");
+const $=s=>document.querySelector(s),t=k=>T[lang][k]??k,L=o=>o?(o[lang]||o.ar||""):"";
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const heart=`<svg><use href="#heart"/></svg>`;
+const img=i=>i.image?`<img src="${esc(i.image)}" alt="${esc(L(i.name))}" loading="lazy" decoding="async">`:`<div class="noimg">COB</div>`;
+const fmt=n=>Number(n).toLocaleString(lang==="ar"?"ar-SA":"en",{minimumFractionDigits:0});
+const price=(p,cls="pr")=>p==null?`<span class="${cls} tbd">${t("priceTbd")}</span>`:`<span class="${cls}">${fmt(p)} <small style="font-size:.6em">${L(D.settings.currency)}</small></span>`;
+function toast(m){const e=$("#toast");e.textContent=m;e.classList.add("show");clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove("show"),1800)}
+const byId=id=>D.items.find(i=>i.id===id);
+const cats=()=>D.categories.filter(c=>D.items.some(i=>i.cat===c.id&&(!D.settings.hideUnavailable||i.available)));
+
+function applyLang(){
+ document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+ document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t(e.dataset.t));
+ $("#langBtn").textContent=lang==="ar"?"EN":"عربي";$("#q").placeholder=t("search");
+ $("#h1").innerHTML=esc(t("h1")).replace("\n","<br>");$("#lead").textContent=t("lead");
+ document.title=lang==="ar"?"كوب | COB — المنيو":"COB | كوب — Menu";
+ $("#favBtn").setAttribute("aria-label",t("favs"));$("#cartBtn").setAttribute("aria-label",t("cartT"));
+}
+function renderSide(){
+ const b=D.branch;$("#hdrCity").textContent=L(b.city);$("#openTxt").textContent=" · "+L(b.hours);
+ $("#hoursBig").textContent=L(b.hours);$("#visitCity").textContent=L(b.city);
+ $("#visitAddr").textContent=b.address?L(b.address):"";
+ $("#visitAct").innerHTML=b.mapUrl?`<a class="btn-copper" href="${esc(b.mapUrl)}" target="_blank" rel="noopener">${t("dir")} <svg class="fl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>`:`<div class="pending">${t("pendingLoc")}</div>`;
+ const s=D.items.find(i=>i.seasonal&&(i.available||!D.settings.hideUnavailable));
+ $("#seasonCard").hidden=!s;
+ if(s)$("#seasonCard").innerHTML=`<svg class="branch" viewBox="0 0 200 220"><use href="#branch"/></svg><svg class="seal" viewBox="0 0 100 100"><use href="#seal"/></svg><div class="eyebrow" style="color:#5E7E45">${t("seasonEye")}</div><h3>${esc(L(s.name))}</h3><p>${esc(L(s.desc))}</p>${price(s.price)}<br><button class="more" data-id="${s.id}">${t("seasonMore")}</button><span class="demo">${t("seasonDemo")}</span>`;
+ const f=D.items.filter(i=>i.featured&&(i.available||!D.settings.hideUnavailable));
+ $("#picks").hidden=!f.length;
+ $("#picksRow").innerHTML=f.map(i=>`<button class="pick" data-id="${i.id}"><div class="ph">${img(i)}</div><span>${esc(L(i.name))}</span></button>`).join("");
+ $("#cartBtn").hidden=!D.settings.cartEnabled;
+}
+function renderTabs(){
+ $("#tabs").innerHTML=[`<button class="tab ${cat===null?"on":""}" data-cat="">${t("all")}</button>`,...cats().map(c=>`<button class="tab ${cat===c.id?"on":""}" data-cat="${c.id}" role="tab">${esc(L(c.name))}</button>`)].join("");
+}
+const norm=s=>String(s).toLowerCase().replace(/[أإآ]/g,"ا").replace(/ة/g,"ه").replace(/ى/g,"ي").replace(/[ً-ْ]/g,"");
+function list(){
+ const nq=norm(q.trim());
+ return D.items.filter(i=>(!D.settings.hideUnavailable||i.available)&&(!avail||i.available)&&(cat===null||i.cat===cat)&&(!nq||norm(i.name.ar+" "+i.name.en+" "+i.desc.ar+" "+i.desc.en).includes(nq)));
+}
+function rowHTML(i,k){
+ const tags=[i.featured?`<span class="tg w">${t("featured")}</span>`:"",i.seasonal?`<span class="tg">${t("seasonal")}</span>`:"",!i.available?`<span class="tg w">${t("soldout")}</span>`:""].join("");
+ return `<button class="row ${i.available?"":"off"}" data-id="${i.id}" style="animation-delay:${Math.min(k,10)*25}ms"><span class="ph">${img(i)}</span><span class="tx"><span class="top"><h3>${esc(L(i.name))}${i.featured?'<span class="star">✦</span>':""}</h3>${price(i.price)}</span><p>${esc(L(i.desc))}</p>${tags?`<span class="tags">${tags}</span>`:""}</span><span class="fv ${favs.has(i.id)?"on":""}" data-fav="${i.id}" role="button" tabindex="0" aria-label="${t("favs")}">${heart}</span></button>`;
+}
+function renderCard(){
+ const its=list();
+ const groups=(cat===null?cats():cats().filter(c=>c.id===cat)).map(c=>[c,its.filter(i=>i.cat===c.id)]).filter(g=>g[1].length);
+ vis=groups.flatMap(g=>g[1]);let k=0;
+ $("#card").innerHTML=groups.length?groups.map(([c,a])=>`<div class="mc-head"><h2>${esc(L(c.name))}</h2><small>${a.length} ${t("items")}</small></div>${a.map(i=>rowHTML(i,k++)).join("")}`).join("")+(cat!==null?`<div class="mc-foot"><button data-cat="">${t("viewAll")} <svg class="fl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>`:""):`<div class="empty"><b>${t("emptyT")}</b>${t("emptyS")}</div>`;
+}
+function badges(){const f=$("#favCount");f.textContent=favs.size||"";f.dataset.n=favs.size;const n=Object.values(cart).reduce((a,b)=>a+b,0);const c=$("#cartCount");c.textContent=n||"";c.dataset.n=n}
+function renderAll(){applyLang();renderSide();renderTabs();renderCard();badges()}
+
+function openSheet(h,f){$("#sb").innerHTML=h;$("#sf").innerHTML=f;$("#sheet").classList.add("show");$("#scrim").classList.add("show");document.body.style.overflow="hidden";setTimeout(()=>{const b=$("#sheet .pd-close")||$("#sheet button");b&&b.focus()},60)}
+function closeSheet(){$("#sheet").classList.remove("show");$("#scrim").classList.remove("show");document.body.style.overflow="";cur=null;if(location.hash.startsWith("#item-"))history.replaceState(null,"",location.pathname+location.search)}
+function showItem(id){
+ const i=byId(id);if(!i)return;cur=id;track("view_item",{item:id,cat:i.cat,src});
+ const ls=vis.some(v=>v.id===id)?vis:D.items,k=ls.findIndex(v=>v.id===id);
+ const arr=d=>`<svg class="${d}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>`;
+ const nav=ls.length>1?`<div class="pd-nav"><button class="circ" data-go="${ls[(k-1+ls.length)%ls.length].id}" aria-label="${t("prev")}">${arr(lang==="ar"?"":"fl")}</button><button class="circ" data-go="${ls[(k+1)%ls.length].id}" aria-label="${t("next")}">${arr(lang==="ar"?"fl":"")}</button></div>`:"";
+ const h=`<div class="pd-media">${img(i)}<button class="circ pd-close" data-act="close" aria-label="${t("close")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>${nav}</div>
+ <div class="pd-body"><div class="pd-top"><div><h2 id="pdT">${esc(L(i.name))}</h2><div class="alt">${esc(lang==="ar"?i.name.en:i.name.ar)}</div></div>${i.available?price(i.price):`<span class="tg w">${t("soldout")}</span>`}</div>
+ <p class="desc">${esc(L(i.desc))}</p>
+ <div class="blk"><h4>${t("ingredients")}</h4>${i.ingredients?`<p>${esc(L(i.ingredients))}</p>`:`<p class="na">${t("na")}</p>`}</div>
+ ${i.addons&&i.addons.length?`<div class="blk"><h4>${t("addons")}</h4><p>${i.addons.map(a=>esc(L(a.name))+(a.price!=null?` (+${a.price})`:"")).join(" · ")}</p></div>`:""}
+ <div class="blk"><h4>${t("allergens")}</h4>${i.allergens?`<p>${esc(L(i.allergens))}</p>`:`<p class="na">${t("allergyNa")}</p>`}</div></div>`;
+ const f=`<div class="acts">${D.settings.cartEnabled?`<button class="btn btn-p" data-add="${i.id}" ${i.available?"":"disabled"}>${t("add")}</button>`:""}<button class="btn btn-s ${favs.has(i.id)?"on":""}" data-fav="${i.id}" aria-label="${t("favs")}">${heart}</button></div>`;
+ if($("#sheet").classList.contains("show")){$("#sb").innerHTML=h;$("#sf").innerHTML=f;$("#sb").scrollTop=0}else openSheet(h,f);
+ history.replaceState(null,"","#item-"+id);
+}
+function toggleFav(id){
+ favs.has(id)?(favs.delete(id),toast(t("favRem"))):(favs.add(id),toast(t("favAdd")),track("add_favorite",{item:id}));
+ store.set("favs",[...favs]);badges();
+ document.querySelectorAll(`[data-fav="${id}"]`).forEach(e=>{e.classList.toggle("on",favs.has(id));e.classList.remove("pop");void e.offsetWidth;e.classList.add("pop")});
+}
+const liHTML=(i,extra)=>`<div class="li"><button class="t" data-open="${i.id}" style="display:flex;gap:12px;align-items:center;flex:1"><span class="ph">${img(i)}</span><span><b>${esc(L(i.name))}</b><small>${i.price==null?t("priceTbd"):fmt(i.price)+" "+L(D.settings.currency)}</small></span></button>${extra}</div>`;
+function showFavs(){
+ const its=D.items.filter(i=>favs.has(i.id));
+ openSheet(`<div class="dr"><h3>${t("favs")}</h3>${its.length?its.map(i=>liHTML(i,`<button class="fv on" data-fav="${i.id}" aria-label="${t("remove")}">${heart}</button>`)).join(""):`<div class="empty"><b>${t("favEmptyT")}</b>${t("favEmptyS")}</div>`}</div>`,`<div class="acts"><button class="btn btn-s wide" data-act="close">${t("close")}</button></div>`);
+}
+function showCart(){
+ const ids=Object.keys(cart).filter(id=>cart[id]>0&&byId(id)),priced=ids.every(id=>byId(id).price!=null),tot=ids.reduce((a,id)=>a+(byId(id).price||0)*cart[id],0);
+ openSheet(`<div class="dr"><h3>${t("cartT")}</h3><p class="sub">${t("cartS")}</p>${ids.length?ids.map(id=>liHTML(byId(id),`<div class="qty"><button data-q="${id}" data-d="-1" aria-label="-">−</button><span>${cart[id]}</span><button data-q="${id}" data-d="1" aria-label="+">+</button></div>`)).join("")+`<div class="tot"><span>${t("total")}</span><span>${priced?fmt(tot)+" "+L(D.settings.currency):t("totalTbd")}</span></div>`:`<div class="empty"><b>${t("cartEmpty")}</b></div>`}</div>`,`<div class="acts">${ids.length?`<button class="btn btn-s wide" data-act="clear">${t("clear")}</button>`:""}<button class="btn btn-p" data-act="close">${t("close")}</button></div>`);
+}
+document.addEventListener("click",e=>{
+ const g=s=>e.target.closest(s);let el;
+ if(el=g("[data-fav]")){e.preventDefault();e.stopPropagation();toggleFav(el.dataset.fav);if(!cur&&$("#sheet").classList.contains("show"))showFavs();return}
+ if(el=g("[data-go]"))return showItem(el.dataset.go);
+ if(el=g("[data-add]")){const id=el.dataset.add;cart[id]=(cart[id]||0)+1;store.set("cart",cart);badges();toast(t("added"));track("add_to_list",{item:id});return}
+ if(el=g("[data-q]")){const id=el.dataset.q;cart[id]=Math.max(0,(cart[id]||0)+ +el.dataset.d);if(!cart[id])delete cart[id];store.set("cart",cart);badges();return showCart()}
+ if(el=g("[data-act]")){if(el.dataset.act==="close")closeSheet();else{cart={};store.set("cart",cart);badges();showCart()}return}
+ if(el=g("[data-open]"))return showItem(el.dataset.open);
+ if(el=g("[data-cat]")){cat=el.dataset.cat||null;renderTabs();renderCard();track("open_category",{cat});const on=$("#tabs .tab.on");on&&on.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"});if(innerWidth<1100){const top=$("#menu").getBoundingClientRect().top+scrollY-70;if(scrollY>top)scrollTo({top,behavior:"smooth"})}else $("#card").scrollTop=0;return}
+ if(el=g("[data-id]"))return showItem(el.dataset.id);
+});
+document.addEventListener("keydown",e=>{
+ if(e.key==="Escape"&&$("#sheet").classList.contains("show"))closeSheet();
+ if((e.key==="Enter"||e.key===" ")&&e.target.matches(".fv[data-fav]")){e.preventDefault();e.stopPropagation();toggleFav(e.target.dataset.fav)}
+ if(cur&&(e.key==="ArrowLeft"||e.key==="ArrowRight")){const b=document.querySelectorAll(".pd-nav .circ");if(b.length)b[(e.key==="ArrowLeft")===(lang==="ar")?1:0].click()}
+});
+$("#scrim").onclick=closeSheet;
+(()=>{let x0,y0;const s=$("#sheet");s.addEventListener("touchstart",e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});s.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;if(dy>90&&Math.abs(dx)<60&&$("#sb").scrollTop<=0)closeSheet();else if(cur&&Math.abs(dx)>70&&Math.abs(dy)<50&&e.target.closest(".pd-media")){const b=document.querySelectorAll(".pd-nav .circ");if(b.length)b[(dx<0)===(lang==="ar")?0:1].click()}x0=null},{passive:true})})();
+let qt;$("#q").addEventListener("input",e=>{q=e.target.value;$("#sbox").classList.toggle("has",!!q);clearTimeout(qt);qt=setTimeout(()=>{renderCard();if(q.trim())track("search",{q:q.trim()})},120)});
+$("#qClr").onclick=e=>{e.preventDefault();$("#q").value="";q="";$("#sbox").classList.remove("has");renderCard();$("#q").focus()};
+$("#availBtn").onclick=()=>{avail=!avail;$("#availBtn").classList.toggle("on",avail);renderCard()};
+$("#favBtn").onclick=showFavs;$("#cartBtn").onclick=showCart;
+$("#langBtn").onclick=()=>{lang=lang==="ar"?"en":"ar";store.set("lang",lang);const k=cur;renderAll();if(k)showItem(k);track("change_language",{to:lang})};
+addEventListener("scroll",()=>$("#hdr").classList.toggle("scrolled",scrollY>8),{passive:true});
+const SB_URL="https://laxnbguluaebjccsngnm.supabase.co",SB_KEY="sb_publishable_xKdluhsD5f88JqlcCGJkzA_lO4oK6Nk";
+function loadAvail(){return fetch(SB_URL+"/rest/v1/menu_items?select=id,available",{headers:{apikey:SB_KEY},cache:"no-store"}).then(r=>r.ok?r.json():null).catch(()=>null)}
+try{D=JSON.parse(document.getElementById("menu-data").textContent)}catch(e){D=null}
+if(!D){$("#card").innerHTML=`<div class="empty"><b>${t("loadErr")}</b></div>`}
+else{
+ D.items.forEach(i=>i.available=true);
+ renderAll();track("menu_view",{src});
+ loadAvail().then(rows=>{if(!rows)return;const m={};rows.forEach(r=>m[r.id]=r.available);let ch=false;D.items.forEach(i=>{if(i.id in m&&i.available!==m[i.id]){i.available=m[i.id];ch=true}});if(ch){const k=cur;renderAll();if(k&&byId(k).available)showItem(k);else if(k)closeSheet()}});
+ if(location.hash.startsWith("#item-"))showItem(location.hash.slice(6));
+ document.addEventListener("visibilitychange",()=>{if(!document.hidden)loadAvail().then(rows=>{if(!rows)return;rows.forEach(r=>{const i=byId(r.id);if(i)i.available=r.available});renderAll()})});
+}
+</script>
+</body>
+</html>
