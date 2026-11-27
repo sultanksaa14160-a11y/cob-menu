@@ -370,7 +370,7 @@ header{background:rgba(241,218,192,.97)!important}
 
 <header id="hdr">
  <div class="wrap bar">
-  <a class="brand" href="#top" aria-label="COB"><img src="img/logo-crimson.png" alt="COB" class="brand-logo"><small id="hdrCity"></small></a>
+  <a class="brand" href="#top" aria-label="COB"><img src="img/logo-crimson.png" alt="COB" class="brand-logo"></a>
   <nav class="main" aria-label="main">
    <a href="#menu" class="on" data-t="navMenu"></a><a href="#picks" data-t="navPicks"></a><a href="#hours" data-t="navHours"></a><a href="#visit" data-t="navVisit"></a>
   </nav>
@@ -466,7 +466,7 @@ function applyLang(){
  $("#cartBtn").setAttribute("aria-label",t("cartT"));
 }
 function renderSide(){
- const b=D.branch;$("#hdrCity").textContent=L(b.city);const op=isOpen();$("#openTxt").textContent=op?" · "+L(b.hours):"";
+ const b=D.branch;const op=isOpen();$("#openTxt").textContent=op?" · "+L(b.hours):"";
  document.querySelectorAll('[data-t="openNow"]').forEach(e=>e.textContent=op?t("openNow"):t("closedNow"));
  document.querySelectorAll("#openPill,.mini .status").forEach(e=>e.classList.toggle("closed",!op));
  $("#bfNote")&&($("#bfNote").textContent=t("bfHours"));
